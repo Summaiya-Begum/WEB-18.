@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Database</title>
+    <link rel="stylesheet" href="commonStyles.css" />
+  </head>
+
+  <body>
+    <div id="links">
+      <div><a href="index.html">Home</a></div>
+      <div><a href="applied.html">Applied Jobs</a></div>
+      <div><a href="bookmark.html">Bookmarks</a></div>
+    </div>
+
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Job applied</th>
+            <th>Salary expected</th>
+            <th>Add to bookmark</th>
+          </tr>
+        </thead>
+        <tbody id="body">
+          <!-- Append your output to tbody -->
+        </tbody>
+      </table>
+    </main>
+  </body>
+  <script>
+    //you need to code here
+var arr = JSON.parse(localStorage.getItem("jobList"));
+//console.log(arr)
+    displayData(arr);
+
+    var book= JSON.parse(localStorage.getItem("Bookmark")) || []
+     // console.log(book)
+    function displayData(data){
+
+    data.forEach(function (elem){
+    var row1 = document.createElement("tr");
+    
+    var col1= document.createElement("td");
+        col1.innerText=elem.personName
+       // console.log(col1) 
+
+    var col2= document.createElement("td");
+      col2.innerText=elem.personEmail
+     // console.log(col2)
+
+    var col3= document.createElement("td");
+      col3.innerText=elem.personRole
+
+    var col4= document.createElement("td");
+      col4.innerText=elem.personSalary
+
+    var col5= document.createElement("td");
+      col5.innerText= "Bookmark"
+      col5.style.color ="blue"
+      col5.style.cursor="pointer"
+      col5.addEventListener("click", function(){
+         bookmarkarr(elem);
+        //console.log("cliked me")
+      });
+    // var col6= document.createElement("td");
+    // col6.innerText="DELETE"
+row1.append(col1,col2,col3,col4,col5)
+document.querySelector("#body").append(row1)
+})
+
+}
+
+  function bookmarkarr (elem){
+  //console.log(elem)
+  book.push(elem)
+  localStorage.setItem("Bookmark",JSON.stringify(book))
+  }
+
+  </script>
+</html>
