@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Database</title>
+    <link rel="stylesheet" href="commonStyles.css" />
+  </head>
+
+  <body>
+    <div id="links">
+      <div><a href="index.html">Home</a></div>
+      <div><a href="contact.html">Contact List</a></div>
+      <div><a href="favourites.html">Favourites</a></div>
+    </div>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Contact Name</th>
+            <th>Mobile Number</th>
+            <th>Type</th>
+            <th>Favourites</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Append your output to tbody -->
+        </tbody>
+      </table>
+    </main>
+  </body>
+  <script>
+    //code your js part here
+    //append your output to tbody
+
+var detailsOfUsers = JSON.parse(localStorage.getItem("contactList"));
+
+console.log(detailsOfUsers);
+displayData(detailsOfUsers);
+
+var array2 = JSON.parse(localStorage.getItem("favourites")) || [];
+
+function displayData(data){
+
+  data.forEach(function(elem){
+
+    var R1 = document.createElement("tr")
+
+    var C1 = document.createElement("td")
+    C1.innerText=elem.personName
+    C1.style.fontFamily="Fantasy"
+
+    var C2 = document.createElement("td")
+    C2.innerText=elem.personMobile
+    C2.style.fontWeight="bold"
+
+    var C4 = document.createElement("td")
+    C4.innerText=elem.selectType
+    C4.style.fontFamily="Sans-serif"
+
+    var C3 = document.createElement("td")
+    C3.innerText="favourites"
+    C3.style.fontFamily="Sans-serif"
+    C3.style.color="#e90a96"
+    C3.style.cursor="pointer"
+    C3.addEventListener("click", function(){
+      golgappa(elem)
+    })
+
+    R1.append(C1,C2,C4,C3)
+    document.querySelector("tbody").append(R1)
+  })
+
+function golgappa(elem){
+console.log(elem)
+array2.push(elem)
+localStorage.setItem("favourites",JSON.stringify(array2))
+window.location.href="favourites.html"
+}
+}
+
+
+
+
+
+
+
+
+  </script>
+</html>
