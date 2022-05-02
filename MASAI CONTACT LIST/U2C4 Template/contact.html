@@ -36,7 +36,8 @@
 
 var detailsOfUsers = JSON.parse(localStorage.getItem("contactList"));
 
-console.log(detailsOfUsers);
+//console.log(detailsOfUsers);
+
 displayData(detailsOfUsers);
 
 var array2 = JSON.parse(localStorage.getItem("favourites")) || [];
@@ -73,7 +74,7 @@ function displayData(data){
   })
 
 function golgappa(elem){
-console.log(elem)
+//console.log(elem)
 array2.push(elem)
 localStorage.setItem("favourites",JSON.stringify(array2))
 window.location.href="favourites.html"

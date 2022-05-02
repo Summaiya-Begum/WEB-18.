@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-COMMERCE PAYMENT GATEWAY</title>
+    <style>
+        body{
+            margin-top: 200px;
+        }
+        form{
+            width: 40%;
+           height: 200px;
+            text-align: center;
+            margin:auto;
+            /* border: 1px solid red; */
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        }
+        input{
+            margin-top: 30px;
+            cursor: pointer;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <input id="cardNumber" type="number"  placeholder="Enter Card Number"/>
+        <input id="cvv" type="number"  placeholder="Enter CVV"/>
+        <input id="date" type="date"   placeholder="Expiry Date"/>
+        <input type="submit" />
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("#form").addEventListener("submit", myfunction)
+
+    
+    var arr =[]
+    function myfunction(){
+        event.preventDefault();
+        var obj = {
+            card:form.cardNumber.value,
+            Cvv:form.cvv.value,
+            exdate:form.date.value
+        }
+        arr.push(obj);
+        localStorage.setItem("datas",JSON.stringify(arr))
+        console.log(arr)
+
+        if(card == )
+
+
+
+    }
+</script>
